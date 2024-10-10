@@ -1,6 +1,6 @@
-return {
+require("gitsigns").setup {
     signs = {
-      delete = { text = "󰍵" },
-      changedelete = { text = "󱕖" },
+        delete = { text = "󰍵" },
+        changedelete = { text = "󱕖" },
     },
-  }
+}

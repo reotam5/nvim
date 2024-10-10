@@ -78,10 +78,9 @@ return {
     },
     {
         "lewis6991/gitsigns.nvim",
-        event = "User FilePost",
-        opts = function()
-            return require "configs.gitsigns"
-        end,
+        config = function ()
+           require "configs.gitsigns"
+        end
     },
     {
         "akinsho/toggleterm.nvim",

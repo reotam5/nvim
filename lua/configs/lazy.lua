@@ -8,7 +8,6 @@ return {
         not_loaded = "",
       },
     },
-  
     performance = {
       rtp = {
         disabled_plugins = {
