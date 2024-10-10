@@ -79,7 +79,31 @@ map('n', '<leader>u', '<cmd>UndotreeToggle<cr><cmd>UndotreeFocus<cr>')
 
 -- tabufline
 map("n", "<tab>", "<cmd>BufferLineCycleNext<CR>", { desc = "buffer goto next" })
-
 map("n", "<S-tab>", "<cmd>BufferLineCyclePrev<CR>", { desc = "buffer goto prev" })
+map("n", "<leader>q", "<cmd>bd!<cr>", { desc = "buffer close" })
 
-map("n", "<leader>q", "<cmd>bd<cr>", { desc = "buffer close" })
+
+-- diffview
+map("n", "<leader>di", function ()
+    if require("diffview.lib").get_current_view() == nil then
+        vim.cmd("DiffviewOpen")
+    else
+        vim.cmd("DiffviewClose")
+    end
+end, { desc = "toggle diffview" })
+
+
+-- toggleterm
+map("n", "<leader>tf", "<cmd>ToggleTerm direction=float<CR>")
+map("t", "<leader>q", "<cmd>ToggleTermToggleAll<CR>")
+map("t", "jk", "<C-\\><C-N>", { desc = "terminal escape terminal mode" })
+
+
+-- lsp saga
+map("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", { desc = "code action" })
+map("n", "<leader>pd", "<cmd>Lspsaga peek_definition<CR>", { desc = "peek definition" })
+map("n", "<leader>ca", "<cmd>Lspsaga goto_definition<CR>", { desc = "go to definition" })
+map("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", { desc = "rename" })
+map("n", "<leader>dn", "<cmd>Lspsaga diagnostic_jump_next<CR>", { desc = "diagnostic next" })
+map("n", "<leader>dp", "<cmd>Lspsaga diagnostic_jump_prev<CR>", { desc = "diagnostic previous" })
+

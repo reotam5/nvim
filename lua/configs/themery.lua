@@ -1,6 +1,7 @@
 require("themery").setup({
     themes = {
         "everforest",
-        "nordic"
+        "nordic",
+        "tokyonight"
     }
 })

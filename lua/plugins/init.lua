@@ -1,8 +1,17 @@
 return {
     "nvim-lua/plenary.nvim",
-    "ggandor/leap.nvim",
     "mbbill/undotree",
-    "rcarriga/nvim-notify",
+    "sindrets/diffview.nvim",
+    "HiPhish/rainbow-delimiters.nvim",
+    "machakann/vim-sandwich",
+    {
+        "ggandor/leap.nvim",
+        config = function()
+            vim.api.nvim_set_hl(0, "LeapLabelPrimary", { bg = "white", fg = "black" })
+            vim.api.nvim_set_hl(0, "LeapMatch", { fg = "yellow", bold = true, nocombine = true })
+            require("leap").opts.highlight_unlabeled_phase_one_targets = true
+        end,
+    },
     {
         "stevearc/oil.nvim",
         opts = {},
@@ -20,11 +29,32 @@ return {
         end,
     },
     {
+        "shellRaining/hlchunk.nvim",
+        event = { "BufReadPre", "BufNewFile" },
+        config = function()
+            require("hlchunk").setup {
+                chunk = { enable = true },
+                indent = { enable = true },
+                line_num = { enable = true },
+            }
+        end,
+    },
+    {
+        "folke/noice.nvim",
+        event = "VeryLazy",
+        opts = {},
+        dependencies = {
+            "MunifTanjim/nui.nvim",
+            "rcarriga/nvim-notify",
+        },
+    },
+    {
         "zaldih/themery.nvim",
         lazy = false,
         dependencies = {
             "neanias/everforest-nvim",
-            "AlexvZyl/nordic.nvim"
+            "AlexvZyl/nordic.nvim",
+            "folke/tokyonight.nvim",
         },
         config = function()
             require "configs.themery"
@@ -34,13 +64,6 @@ return {
         "nvim-lualine/lualine.nvim",
         config = function()
             require("lualine").setup()
-        end,
-    },
-    {
-        "kylechui/nvim-surround",
-        event = "VeryLazy",
-        config = function()
-            require("nvim-surround").setup {}
         end,
     },
     {
@@ -61,6 +84,21 @@ return {
         end,
     },
     {
+        "akinsho/toggleterm.nvim",
+        version = "*",
+        config = function()
+            require "configs.toggleterm"
+        end,
+    },
+    {
+        "Wansmer/treesj",
+        keys = { "<space>m" },
+        dependencies = { "nvim-treesitter/nvim-treesitter" },
+        config = function()
+            require("treesj").setup {}
+        end,
+    },
+    {
         "williamboman/mason.nvim",
         cmd = { "Mason", "MasonInstall", "MasonInstallAll", "MasonUpdate" },
         opts = function()
@@ -71,6 +109,12 @@ return {
         "neovim/nvim-lspconfig",
         config = function()
             require "configs.lspconfig"
+        end,
+    },
+    {
+        "nvimdev/lspsaga.nvim",
+        config = function()
+            require("lspsaga").setup {}
         end,
     },
     {
@@ -101,6 +145,8 @@ return {
                 end,
             },
             {
+                "hrsh7th/cmp-cmdline",
+                "onsails/lspkind.nvim",
                 "saadparwaiz1/cmp_luasnip",
                 "hrsh7th/cmp-nvim-lua",
                 "hrsh7th/cmp-nvim-lsp",
