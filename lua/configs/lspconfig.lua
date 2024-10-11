@@ -7,9 +7,8 @@ M.on_attach = function(_, bufnr)
     local function opts(desc)
       return { buffer = bufnr, desc = "LSP " .. desc }
     end
-  
-    map("n", "<leader>fs", vim.lsp.buf.signature_help, opts "Show signature help")
-    map("n", "<leader>rf", vim.lsp.buf.references, opts "Show references")
+    map("n", "fs", vim.lsp.buf.signature_help, opts "Show signature help")
+    map("n", "rf", vim.lsp.buf.references, opts "Show references")
 end
 
 M.on_init = function(client, _)

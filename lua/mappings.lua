@@ -101,8 +101,8 @@ map("t", "jk", "<C-\\><C-N>", { desc = "terminal escape terminal mode" })
 
 -- lsp saga
 map("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", { desc = "code action" })
-map("n", "<leader>pd", "<cmd>Lspsaga peek_definition<CR>", { desc = "peek definition" })
-map("n", "<leader>ca", "<cmd>Lspsaga goto_definition<CR>", { desc = "go to definition" })
+map("n", "gd", "<cmd>Lspsaga peek_definition<CR>", { desc = "peek definition" })
+map("n", "gD", "<cmd>Lspsaga goto_definition<CR>", { desc = "go to definition" })
 map("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", { desc = "rename" })
 map("n", "<leader>dn", "<cmd>Lspsaga diagnostic_jump_next<CR>", { desc = "diagnostic next" })
 map("n", "<leader>dp", "<cmd>Lspsaga diagnostic_jump_prev<CR>", { desc = "diagnostic previous" })
