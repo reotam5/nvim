@@ -1,16 +1,12 @@
 return {
     "nvim-lua/plenary.nvim",
     "mbbill/undotree",
-    "sindrets/diffview.nvim",
     "HiPhish/rainbow-delimiters.nvim",
-    "machakann/vim-sandwich",
     {
-        "ggandor/leap.nvim",
-        config = function()
-            vim.api.nvim_set_hl(0, "LeapLabelPrimary", { bg = "white", fg = "black" })
-            vim.api.nvim_set_hl(0, "LeapMatch", { fg = "yellow", bold = true, nocombine = true })
-            require("leap").opts.highlight_unlabeled_phase_one_targets = true
-        end,
+        "folke/flash.nvim",
+        event = "VeryLazy",
+        opts = {},
+        keys = require("configs.flash").keys,
     },
     {
         "stevearc/oil.nvim",
@@ -37,6 +33,14 @@ return {
                 indent = { enable = true },
                 line_num = { enable = true },
             }
+        end,
+    },
+    {
+        "kylechui/nvim-surround",
+        version = "*",
+        event = "VeryLazy",
+        config = function()
+            require("nvim-surround").setup {}
         end,
     },
     {
@@ -78,9 +82,40 @@ return {
     },
     {
         "lewis6991/gitsigns.nvim",
-        config = function ()
-           require "configs.gitsigns"
-        end
+        config = function()
+            require "configs.gitsigns"
+        end,
+    },
+    {
+        "dinhhuy258/git.nvim",
+        config = function()
+            require("git").setup()
+        end,
+    },
+    {
+        "rmagatti/auto-session",
+        config = function()
+            require("auto-session").setup {}
+        end,
+    },
+    {
+        "epwalsh/obsidian.nvim",
+        version = "*",
+        lazy = true,
+        ft = "markdown",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "godlygeek/tabular",
+            "preservim/vim-markdown",
+        },
+        config = function()
+            require "configs.obsidian"
+        end,
+    },
+    {
+        "MeanderingProgrammer/render-markdown.nvim",
+        dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.nvim" }, -- if you use the mini.nvim suite
+        opts = {},
     },
     {
         "akinsho/toggleterm.nvim",

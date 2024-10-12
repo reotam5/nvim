@@ -2,6 +2,7 @@ local opt = vim.opt
 local o = vim.o
 local g = vim.g
 
+opt.conceallevel=2
 
 opt.nu = true
 opt.relativenumber = true
