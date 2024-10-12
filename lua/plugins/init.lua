@@ -87,10 +87,21 @@ return {
         end,
     },
     {
-        "dinhhuy258/git.nvim",
-        config = function()
-            require("git").setup()
-        end,
+        "kdheepak/lazygit.nvim",
+        lazy = true,
+        cmd = {
+            "LazyGit",
+            "LazyGitConfig",
+            "LazyGitCurrentFile",
+            "LazyGitFilter",
+            "LazyGitFilterCurrentFile",
+        },
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+        },
+        keys = {
+            { "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" },
+        },
     },
     {
         "rmagatti/auto-session",
@@ -180,7 +191,6 @@ return {
             },
             {
                 "hrsh7th/cmp-cmdline",
-                "onsails/lspkind.nvim",
                 "saadparwaiz1/cmp_luasnip",
                 "hrsh7th/cmp-nvim-lua",
                 "hrsh7th/cmp-nvim-lsp",

@@ -95,8 +95,7 @@ end, { desc = "toggle diffview" })
 
 -- toggleterm
 map("n", "<leader>tf", "<cmd>ToggleTerm direction=float<CR>")
-map("t", "<leader>q", "<cmd>ToggleTermToggleAll<CR>")
-map("t", "jk", "<C-\\><C-N>", { desc = "terminal escape terminal mode" })
+map("t", "<C-q>", "<cmd>ToggleTermToggleAll<CR>")
 
 
 -- lsp saga
