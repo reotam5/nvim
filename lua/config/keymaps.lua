@@ -11,3 +11,9 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move selected up" })
 
 -- ctrl + d to discard file changes
 vim.keymap.set("n", "<C-d>", ":e!<CR>", { desc = "Discard file changes" })
+
+-- open terminal
+vim.keymap.set("n", "<leader>t", ":terminal<CR>", { desc = "Open terminal" })
+
+-- exit terminal mode
+vim.keymap.set("t", "<esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
