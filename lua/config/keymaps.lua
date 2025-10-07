@@ -14,9 +14,6 @@ else
   -- jk in insert mode to be escape
   vim.keymap.set("i", "jk", "<Esc>", { desc = "jk to escape" })
 
-  -- ctrl + d to discard file changes
-  vim.keymap.set("n", "<C-d>", ":e!<CR>", { desc = "Discard file changes" })
-
   -- open terminal
   vim.keymap.set("n", "<leader>t", ":terminal<CR>", { desc = "Open terminal" })
 
@@ -28,3 +25,7 @@ end
 -- move selected up/down in visual mode
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move selected down" })
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move selected up" })
+
+-- move selected indent in visual mode
+vim.keymap.set("v", "}", ">gv", { desc = "Indent selection" })
+vim.keymap.set("v", "{", "<gv", { desc = "Unindent selection" })
